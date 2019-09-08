@@ -1,12 +1,11 @@
-
-# See https://help.github.com/ignore-files/ for more about ignoring files.
-
 # dependencies
 node_modules
 
 # builds
 build
 dist
+public
+.cache
 .rpt2_cache
 
 # misc
@@ -20,3 +19,5 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+prismic-config

@@ -1,14 +1,20 @@
-import babel from 'rollup-plugin-babel'
-import commonjs from 'rollup-plugin-commonjs'
-import external from 'rollup-plugin-peer-deps-external'
-import postcss from 'rollup-plugin-postcss'
-import resolve from 'rollup-plugin-node-resolve'
-import url from 'rollup-plugin-url'
-import svgr from '@svgr/rollup'
-
-import pkg from './package.json'
+import babel from 'rollup-plugin-babel';
+import commonjs from 'rollup-plugin-commonjs';
+import external from 'rollup-plugin-peer-deps-external';
+import pkg from './package.json';
+import postcss from 'rollup-plugin-postcss';
+import resolve from 'rollup-plugin-node-resolve';
+import svgr from '@svgr/rollup';
+import url from 'rollup-plugin-url';
 
 export default {
+  external: ['html-react-parser', 'lodash', 'prismic-javascript', 'prismic-reactjs'],
+  globals: {
+    'html-react-parser': 'HtmlReactParser',
+    'lodash': 'lodash',
+    'prismic-javascript': 'PrismicJavascript',
+    'prismic-reactjs': 'PrismicReactjs'
+  },
   input: 'src/index.js',
   output: [
     {
@@ -31,9 +37,9 @@ export default {
     svgr(),
     babel({
       exclude: 'node_modules/**',
-      plugins: [ 'external-helpers' ]
+      plugins: ['external-helpers']
     }),
     resolve(),
     commonjs()
   ]
-}
+};
