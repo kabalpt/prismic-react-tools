@@ -1,5 +1,5 @@
-const { camelCase, upperFirst } = require('lodash');
+import { camelCase, upperFirst } from 'lodash';
 
-const snakeCaseToComponentCase = snakeCase => upperFirst(camelCase(snakeCase));
+export const snakeCaseToComponentCase = snakeCase => upperFirst(camelCase(snakeCase));
 
-module.exports = snakeCaseToComponentCase;
+export default snakeCaseToComponentCase;

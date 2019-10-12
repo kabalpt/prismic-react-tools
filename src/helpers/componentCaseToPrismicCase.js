@@ -1,4 +1,4 @@
-const componentCaseToPrismicCase = (componentCase, { exceptions }) => {
+export const componentCaseToPrismicCase = (componentCase, { exceptions }) => {
   let parsedString = componentCase;
 
   if (exceptions) {

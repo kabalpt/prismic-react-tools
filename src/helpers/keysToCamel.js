@@ -1,6 +1,6 @@
 import { camelCase, isArray, isPlainObject } from 'lodash';
 
-const keysToCamel = object => {
+export const keysToCamel = object => {
   if (!isPlainObject(object) && !isArray(object)) {
     return object;
   }
