@@ -40,6 +40,7 @@ export default class Prismic {
 
       const client = await getApi(apiEndpoint, { accessToken });
       const fetchedDocument = await client.previewSession(token, document => document);
+
       const prismicDocument = keysToCamel(fetchedDocument);
       const documents = await this.getDocuments({ client, lang: '*' });
 
@@ -55,7 +56,7 @@ export default class Prismic {
 
       if (typeof options.onCreatePage === 'function') {
         pageContext = {
-          pageContext,
+          ...pageContext,
           ...options.onCreatePage({
             document: prismicDocument,
             documents,
