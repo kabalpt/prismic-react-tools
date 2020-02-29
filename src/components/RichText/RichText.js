@@ -1,5 +1,6 @@
 import { PrismicReactToolsConsumer } from '../PrismicReactToolsContext/PrismicReactToolsContext';
 import { RichText as PrismicRichText } from 'prismic-reactjs';
+import { serializer as defaultSerializer } from '../../lib/serializer';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -11,7 +12,9 @@ const renderRichText = ({ content, serializer, variables }) => {
 
 export const RichText = ({ content, variables }) => (
   <PrismicReactToolsConsumer>
-    {({ serializer }) => {
+    {({ serializerFromContext }) => {
+      const serializer = serializerFromContext || defaultSerializer;
+
       return <React.Fragment>{renderRichText({ content, serializer, variables })}</React.Fragment>;
     }}
   </PrismicReactToolsConsumer>
