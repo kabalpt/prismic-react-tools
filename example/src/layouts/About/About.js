@@ -11,6 +11,7 @@ const About = ({ pageContext }) => {
 
   return (
     <>
+      <h1>About</h1>
       <PrismicReactToolsProvider components={components}>
         <RichText content={content} variables={{ amazing: 'wonderful!' }} />
         <PlainText content={title} variables={{ title: 'Title!!!!' }} />
