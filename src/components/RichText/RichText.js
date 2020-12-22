@@ -12,7 +12,7 @@ const renderRichText = ({ content, serializer, variables }) => {
 
 export const RichText = ({ content, variables }) => (
   <PrismicReactToolsConsumer>
-    {({ serializerFromContext }) => {
+    {({ serializer: serializerFromContext }) => {
       const serializer = serializerFromContext || defaultSerializer;
 
       return <React.Fragment>{renderRichText({ content, serializer, variables })}</React.Fragment>;
